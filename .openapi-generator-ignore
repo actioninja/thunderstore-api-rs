@@ -23,3 +23,6 @@
 #!docs/README.md
 
 Cargo.toml
+.travis.yml
+git_push.sh
+.gitignore

@@ -1,4 +1,21 @@
-/target
-Cargo.lock
+/target/
+/dist/
+*/target
+**/*.rs.bk
+**/*.rs.pending-snap
+.idea/*
+*.log
+*.iml
+.vscode/settings.json
+generated_assists.adoc
+generated_features.adoc
+generated_diagnostic.adoc
+.DS_Store
+/out/
+/dump.lsif
+.envrc
+junk/
+*.dmi
+*DEBUG*
 
-/.idea
+/api

@@ -2,10 +2,11 @@
 name = "thunderstore-api"
 version = "1.0.0"
 authors = ["OpenAPI Generator team and contributors", "actioninja"]
-edition = "2018"
-rust-version = "1.60"
+edition = "2021"
+rust-version = "1.63"
 description = "Automatically generated API bindings for the Thunderstore Web API"
-repository
+repository = "https://github.com/actioninja/thunderstore-api-rs"
+license = "MPL-2.0"
 
 [dependencies]
 serde = "^1.0"
