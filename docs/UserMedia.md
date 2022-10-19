@@ -5,8 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **uuid** | Option<[**uuid::Uuid**](uuid::Uuid.md)> |  | [optional]
-**filename** | **String** |  | 
-**size** | **u32** |  | 
+**filename** | **String** |  |
+**size** | **u32** |  |
 **datetime_created** | Option<**String**> |  | [optional][readonly]
 **expiry** | Option<**String**> |  | [optional]
 **status** | Option<**String**> |  | [optional]
