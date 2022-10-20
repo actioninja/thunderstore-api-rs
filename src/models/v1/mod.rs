@@ -4,5 +4,4 @@
 // file, You can obtain one at https://mozilla.org/MPL/2.0/.                   /
 ////////////////////////////////////////////////////////////////////////////////
 
-pub mod manifest_v1_validator_params;
 pub mod package;

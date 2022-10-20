@@ -4,11 +4,7 @@
 // file, You can obtain one at https://mozilla.org/MPL/2.0/.                   /
 ////////////////////////////////////////////////////////////////////////////////
 
-////////////////////////////////////////////////////////////////////////////////
-// This Source Code Form is subject to the terms of the Mozilla Public         /
-// License, v. 2.0. If a copy of the MPL was not distributed with this         /
-// file, You can obtain one at https://mozilla.org/MPL/2.0/.                   /
-////////////////////////////////////////////////////////////////////////////////
+use crate::models::v2::package;
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct Community {
@@ -37,19 +33,19 @@ impl Community {
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct PackageList {
     pub bg_image_src: Option<String>,
-    pub categories: Vec<crate::models::Category>,
+    pub categories: Vec<package::Category>,
     pub community_name: String,
     pub has_more_pages: bool,
-    pub packages: Vec<crate::models::v2::package::Card>,
+    pub packages: Vec<package::Card>,
 }
 
 impl PackageList {
     pub fn new(
         bg_image_src: Option<String>,
-        categories: Vec<crate::models::Category>,
+        categories: Vec<package::Category>,
         community_name: String,
         has_more_pages: bool,
-        packages: Vec<crate::models::v2::package::Card>,
+        packages: Vec<package::Card>,
     ) -> PackageList {
         PackageList {
             bg_image_src,
@@ -84,6 +80,44 @@ impl Card {
             identifier,
             name,
             package_count,
+        }
+    }
+}
+
+#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+pub struct ListResponse {
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub next: Option<String>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub previous: Option<String>,
+    pub results: Vec<Community>,
+}
+
+impl ListResponse {
+    pub fn new(results: Vec<Community>) -> ListResponse {
+        ListResponse {
+            next: None,
+            previous: None,
+            results,
+        }
+    }
+}
+
+#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+pub struct CategoryListResponse {
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub next: Option<String>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub previous: Option<String>,
+    pub results: Vec<package::Category>,
+}
+
+impl CategoryListResponse {
+    pub fn new(results: Vec<package::Category>) -> CategoryListResponse {
+        CategoryListResponse {
+            next: None,
+            previous: None,
+            results,
         }
     }
 }

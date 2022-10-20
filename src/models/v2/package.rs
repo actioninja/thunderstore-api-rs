@@ -27,7 +27,7 @@ pub struct Package {
     pub is_deprecated: Option<bool>,
     #[serde(skip_serializing_if = "Option::is_none")]
     pub total_downloads: Option<String>,
-    pub latest: Box<Version>,
+    pub latest: Version,
     pub community_listings: Vec<Listing>,
 }
 
@@ -45,7 +45,7 @@ impl Package {
             is_pinned: None,
             is_deprecated: None,
             total_downloads: None,
-            latest: Box::new(latest),
+            latest,
             community_listings,
         }
     }
@@ -306,6 +306,26 @@ impl DetailView {
             team_name,
             versions,
             website,
+        }
+    }
+}
+
+#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+pub struct ListResponse {
+    #[serde(rename = "next", skip_serializing_if = "Option::is_none")]
+    pub next: Option<String>,
+    #[serde(rename = "previous", skip_serializing_if = "Option::is_none")]
+    pub previous: Option<String>,
+    #[serde(rename = "results")]
+    pub results: Vec<Package>,
+}
+
+impl ListResponse {
+    pub fn new(results: Vec<Package>) -> ListResponse {
+        ListResponse {
+            next: None,
+            previous: None,
+            results,
         }
     }
 }
