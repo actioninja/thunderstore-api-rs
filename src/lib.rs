@@ -15,6 +15,10 @@
 #![allow(clippy::cargo_common_metadata)]
 // Annoying
 #![allow(clippy::module_name_repetitions)]
+// Some gnarly signature I may eventually refactor into builder
+#![allow(clippy::too_many_arguments)]
+// TODO: actually document functions
+#![allow(clippy::missing_errors_doc)]
 
 #[macro_use]
 extern crate serde_derive;
