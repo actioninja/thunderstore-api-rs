@@ -34,7 +34,7 @@ impl PackageSubmissionMetadata {
     }
 }
 
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Eq, Default, Serialize, Deserialize)]
 pub struct PackageSubmissionResult {
     pub package_version: package::Version,
     pub available_communities: Vec<AvailableCommunity>,

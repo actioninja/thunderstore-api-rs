@@ -310,7 +310,7 @@ impl DetailView {
     }
 }
 
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Eq, Default, Serialize, Deserialize)]
 pub struct ListResponse {
     #[serde(rename = "next", skip_serializing_if = "Option::is_none")]
     pub next: Option<String>,

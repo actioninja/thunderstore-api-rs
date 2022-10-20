@@ -30,7 +30,7 @@ impl Community {
     }
 }
 
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Eq, Default, Serialize, Deserialize)]
 pub struct PackageList {
     pub bg_image_src: Option<String>,
     pub categories: Vec<package::Category>,
