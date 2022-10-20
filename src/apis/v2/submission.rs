@@ -61,8 +61,8 @@ pub async fn submit_package(
     }
     if let Some(ref local_var_auth_conf) = local_var_configuration.basic_auth {
         local_var_req_builder = local_var_req_builder.basic_auth(
-            local_var_auth_conf.0.to_owned(),
-            local_var_auth_conf.1.to_owned(),
+            local_var_auth_conf.0.clone(),
+            local_var_auth_conf.1.clone(),
         );
     };
     local_var_req_builder = local_var_req_builder.json(&data);
@@ -109,8 +109,8 @@ pub async fn validate_icon(
     }
     if let Some(ref local_var_auth_conf) = local_var_configuration.basic_auth {
         local_var_req_builder = local_var_req_builder.basic_auth(
-            local_var_auth_conf.0.to_owned(),
-            local_var_auth_conf.1.to_owned(),
+            local_var_auth_conf.0.clone(),
+            local_var_auth_conf.1.clone(),
         );
     };
     local_var_req_builder = local_var_req_builder.json(&data);
@@ -157,8 +157,8 @@ pub async fn validate_v1_manifest(
     }
     if let Some(ref local_var_auth_conf) = local_var_configuration.basic_auth {
         local_var_req_builder = local_var_req_builder.basic_auth(
-            local_var_auth_conf.0.to_owned(),
-            local_var_auth_conf.1.to_owned(),
+            local_var_auth_conf.0.clone(),
+            local_var_auth_conf.1.clone(),
         );
     };
     local_var_req_builder = local_var_req_builder.json(&data);
@@ -205,8 +205,8 @@ pub async fn validate_package_readme(
     }
     if let Some(ref local_var_auth_conf) = local_var_configuration.basic_auth {
         local_var_req_builder = local_var_req_builder.basic_auth(
-            local_var_auth_conf.0.to_owned(),
-            local_var_auth_conf.1.to_owned(),
+            local_var_auth_conf.0.clone(),
+            local_var_auth_conf.1.clone(),
         );
     };
     local_var_req_builder = local_var_req_builder.json(&data);
@@ -259,8 +259,8 @@ pub async fn upload_package(
     }
     if let Some(ref local_var_auth_conf) = local_var_configuration.basic_auth {
         local_var_req_builder = local_var_req_builder.basic_auth(
-            local_var_auth_conf.0.to_owned(),
-            local_var_auth_conf.1.to_owned(),
+            local_var_auth_conf.0.clone(),
+            local_var_auth_conf.1.clone(),
         );
     };
 

@@ -6,7 +6,7 @@
 
 use crate::models::v2::package;
 
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Eq, Default, Serialize, Deserialize)]
 pub struct Community {
     pub identifier: String,
     pub name: String,
@@ -19,7 +19,7 @@ pub struct Community {
 }
 
 impl Community {
-    pub fn new(identifier: String, name: String) -> Community {
+    #[must_use] pub fn new(identifier: String, name: String) -> Community {
         Community {
             identifier,
             name,
@@ -40,7 +40,7 @@ pub struct PackageList {
 }
 
 impl PackageList {
-    pub fn new(
+    #[must_use] pub fn new(
         bg_image_src: Option<String>,
         categories: Vec<package::Category>,
         community_name: String,
@@ -57,7 +57,7 @@ impl PackageList {
     }
 }
 
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Eq, Default, Serialize, Deserialize)]
 pub struct Card {
     pub bg_image_src: Option<String>,
     pub download_count: u32,
@@ -67,7 +67,7 @@ pub struct Card {
 }
 
 impl Card {
-    pub fn new(
+    #[must_use] pub fn new(
         bg_image_src: Option<String>,
         download_count: u32,
         identifier: String,
@@ -84,7 +84,7 @@ impl Card {
     }
 }
 
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Eq, Default, Serialize, Deserialize)]
 pub struct ListResponse {
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next: Option<String>,
@@ -94,7 +94,7 @@ pub struct ListResponse {
 }
 
 impl ListResponse {
-    pub fn new(results: Vec<Community>) -> ListResponse {
+    #[must_use] pub fn new(results: Vec<Community>) -> ListResponse {
         ListResponse {
             next: None,
             previous: None,
@@ -103,7 +103,7 @@ impl ListResponse {
     }
 }
 
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Eq, Default, Serialize, Deserialize)]
 pub struct CategoryListResponse {
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next: Option<String>,
@@ -113,7 +113,7 @@ pub struct CategoryListResponse {
 }
 
 impl CategoryListResponse {
-    pub fn new(results: Vec<package::Category>) -> CategoryListResponse {
+    #[must_use] pub fn new(results: Vec<package::Category>) -> CategoryListResponse {
         CategoryListResponse {
             next: None,
             previous: None,

@@ -6,7 +6,7 @@
 
 use crate::apis::configuration::Configuration;
 use crate::apis::{urlencode, Error, ResponseContent};
-use crate::models::v2;
+
 use crate::models::v2::package;
 
 /// struct for typed errors of method [`experimental_package_read`]
@@ -55,8 +55,8 @@ pub async fn read(
     }
     if let Some(ref local_var_auth_conf) = local_var_configuration.basic_auth {
         local_var_req_builder = local_var_req_builder.basic_auth(
-            local_var_auth_conf.0.to_owned(),
-            local_var_auth_conf.1.to_owned(),
+            local_var_auth_conf.0.clone(),
+            local_var_auth_conf.1.clone(),
         );
     };
 
@@ -106,8 +106,8 @@ pub async fn read_version(
     }
     if let Some(ref local_var_auth_conf) = local_var_configuration.basic_auth {
         local_var_req_builder = local_var_req_builder.basic_auth(
-            local_var_auth_conf.0.to_owned(),
-            local_var_auth_conf.1.to_owned(),
+            local_var_auth_conf.0.clone(),
+            local_var_auth_conf.1.clone(),
         );
     };
 
@@ -147,7 +147,7 @@ pub async fn list(
     let mut local_var_req_builder =
         local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
-    if let Some(ref local_var_str) = cursor {
+    if let Some(local_var_str) = cursor {
         local_var_req_builder =
             local_var_req_builder.query(&[("cursor", &local_var_str.to_string())]);
     }
@@ -157,8 +157,8 @@ pub async fn list(
     }
     if let Some(ref local_var_auth_conf) = local_var_configuration.basic_auth {
         local_var_req_builder = local_var_req_builder.basic_auth(
-            local_var_auth_conf.0.to_owned(),
-            local_var_auth_conf.1.to_owned(),
+            local_var_auth_conf.0.clone(),
+            local_var_auth_conf.1.clone(),
         );
     };
 

@@ -47,8 +47,8 @@ pub async fn experimental_period_auth_period_complete(
     }
     if let Some(ref local_var_auth_conf) = local_var_configuration.basic_auth {
         local_var_req_builder = local_var_req_builder.basic_auth(
-            local_var_auth_conf.0.to_owned(),
-            local_var_auth_conf.1.to_owned(),
+            local_var_auth_conf.0.clone(),
+            local_var_auth_conf.1.clone(),
         );
     };
     local_var_req_builder = local_var_req_builder.json(&data);
@@ -92,8 +92,8 @@ pub async fn auth_validate(configuration: &Configuration) -> Result<(), Error<Au
     }
     if let Some(ref local_var_auth_conf) = local_var_configuration.basic_auth {
         local_var_req_builder = local_var_req_builder.basic_auth(
-            local_var_auth_conf.0.to_owned(),
-            local_var_auth_conf.1.to_owned(),
+            local_var_auth_conf.0.clone(),
+            local_var_auth_conf.1.clone(),
         );
     };
 

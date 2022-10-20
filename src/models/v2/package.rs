@@ -4,7 +4,7 @@
 // file, You can obtain one at https://mozilla.org/MPL/2.0/.                   /
 ////////////////////////////////////////////////////////////////////////////////
 
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Eq, Default, Serialize, Deserialize)]
 pub struct Package {
     #[serde(skip_serializing_if = "Option::is_none")]
     pub namespace: Option<String>,
@@ -32,7 +32,7 @@ pub struct Package {
 }
 
 impl Package {
-    pub fn new(name: String, latest: Version, community_listings: Vec<Listing>) -> Package {
+    #[must_use] pub fn new(name: String, latest: Version, community_listings: Vec<Listing>) -> Package {
         Package {
             namespace: None,
             name,
@@ -51,7 +51,7 @@ impl Package {
     }
 }
 
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Eq, Default, Serialize, Deserialize)]
 pub struct Card {
     pub categories: Vec<Category>,
     pub community_identifier: String,
@@ -70,7 +70,7 @@ pub struct Card {
 }
 
 impl Card {
-    pub fn new(
+    #[must_use] pub fn new(
         categories: Vec<Category>,
         community_identifier: String,
         community_name: String,
@@ -105,19 +105,19 @@ impl Card {
     }
 }
 
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Eq, Default, Serialize, Deserialize)]
 pub struct Category {
     pub name: String,
     pub slug: String,
 }
 
 impl Category {
-    pub fn new(name: String, slug: String) -> Category {
+    #[must_use] pub fn new(name: String, slug: String) -> Category {
         Category { name, slug }
     }
 }
 
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Eq, Default, Serialize, Deserialize)]
 pub struct Dependency {
     pub community_identifier: Option<String>,
     pub community_name: Option<String>,
@@ -129,7 +129,7 @@ pub struct Dependency {
 }
 
 impl Dependency {
-    pub fn new(
+    #[must_use] pub fn new(
         community_identifier: Option<String>,
         community_name: Option<String>,
         description: String,
@@ -150,7 +150,7 @@ impl Dependency {
     }
 }
 
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Eq, Default, Serialize, Deserialize)]
 pub struct Version {
     #[serde(skip_serializing_if = "Option::is_none")]
     pub namespace: Option<String>,
@@ -175,7 +175,7 @@ pub struct Version {
 }
 
 impl Version {
-    pub fn new(
+    #[must_use] pub fn new(
         name: String,
         version_number: String,
         description: String,
@@ -198,7 +198,7 @@ impl Version {
     }
 }
 
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Eq, Default, Serialize, Deserialize)]
 pub struct Listing {
     #[serde(rename = "has_nsfw_content", skip_serializing_if = "Option::is_none")]
     pub has_nsfw_content: Option<bool>,
@@ -211,7 +211,7 @@ pub struct Listing {
 }
 
 impl Listing {
-    pub fn new() -> Listing {
+    #[must_use] pub fn new() -> Listing {
         Listing {
             has_nsfw_content: None,
             categories: None,
@@ -238,7 +238,7 @@ impl Default for ReviewStatus {
     }
 }
 
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Eq, Default, Serialize, Deserialize)]
 pub struct DetailView {
     pub bg_image_src: Option<String>,
     pub categories: Vec<Category>,
@@ -263,7 +263,7 @@ pub struct DetailView {
 }
 
 impl DetailView {
-    pub fn new(
+    #[must_use] pub fn new(
         bg_image_src: Option<String>,
         categories: Vec<Category>,
         community_identifier: String,
@@ -321,7 +321,7 @@ pub struct ListResponse {
 }
 
 impl ListResponse {
-    pub fn new(results: Vec<Package>) -> ListResponse {
+    #[must_use] pub fn new(results: Vec<Package>) -> ListResponse {
         ListResponse {
             next: None,
             previous: None,

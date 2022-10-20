@@ -4,24 +4,24 @@
 // file, You can obtain one at https://mozilla.org/MPL/2.0/.                   /
 ////////////////////////////////////////////////////////////////////////////////
 
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Eq, Default, Serialize, Deserialize)]
 pub struct RenderMarkdownParams {
     pub markdown: String,
 }
 
 impl RenderMarkdownParams {
-    pub fn new(markdown: String) -> RenderMarkdownParams {
+    #[must_use] pub fn new(markdown: String) -> RenderMarkdownParams {
         RenderMarkdownParams { markdown }
     }
 }
 
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Eq, Default, Serialize, Deserialize)]
 pub struct RenderMarkdownResponse {
     pub html: String,
 }
 
 impl RenderMarkdownResponse {
-    pub fn new(html: String) -> RenderMarkdownResponse {
+    #[must_use] pub fn new(html: String) -> RenderMarkdownResponse {
         RenderMarkdownResponse { html }
     }
 }

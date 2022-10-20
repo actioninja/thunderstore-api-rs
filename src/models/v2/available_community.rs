@@ -7,7 +7,7 @@
 use crate::models::v2::community::Community;
 use crate::models::v2::package::Category;
 
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Eq, Default, Serialize, Deserialize)]
 pub struct AvailableCommunity {
     pub community: Community,
     pub categories: Vec<Category>,
@@ -15,7 +15,7 @@ pub struct AvailableCommunity {
 }
 
 impl AvailableCommunity {
-    pub fn new(community: Community, categories: Vec<Category>, url: String) -> AvailableCommunity {
+    #[must_use] pub fn new(community: Community, categories: Vec<Category>, url: String) -> AvailableCommunity {
         AvailableCommunity {
             community,
             categories,

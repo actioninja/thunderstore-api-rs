@@ -4,7 +4,7 @@
 // file, You can obtain one at https://mozilla.org/MPL/2.0/.                   /
 ////////////////////////////////////////////////////////////////////////////////
 
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Eq, Default, Serialize, Deserialize)]
 pub struct Listing {
     #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
@@ -37,7 +37,7 @@ pub struct Listing {
 }
 
 impl Listing {
-    pub fn new() -> Listing {
+    #[must_use] pub fn new() -> Listing {
         Listing {
             name: None,
             full_name: None,
@@ -57,7 +57,7 @@ impl Listing {
     }
 }
 
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Eq, Default, Serialize, Deserialize)]
 pub struct PackageVersion {
     pub date_created: String,
     pub download_count: u32,
@@ -67,7 +67,7 @@ pub struct PackageVersion {
 }
 
 impl PackageVersion {
-    pub fn new(
+    #[must_use] pub fn new(
         date_created: String,
         download_count: u32,
         download_url: String,

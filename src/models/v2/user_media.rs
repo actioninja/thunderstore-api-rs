@@ -4,7 +4,7 @@
 // file, You can obtain one at https://mozilla.org/MPL/2.0/.                   /
 ////////////////////////////////////////////////////////////////////////////////
 
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Eq, Default, Serialize, Deserialize)]
 pub struct UserMedia {
     #[serde(skip_serializing_if = "Option::is_none")]
     pub uuid: Option<uuid::Uuid>,
@@ -19,7 +19,7 @@ pub struct UserMedia {
 }
 
 impl UserMedia {
-    pub fn new(filename: String, size: u32) -> UserMedia {
+    #[must_use] pub fn new(filename: String, size: u32) -> UserMedia {
         UserMedia {
             uuid: None,
             filename,
@@ -52,14 +52,14 @@ impl Default for Status {
     }
 }
 
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Eq, Default, Serialize, Deserialize)]
 pub struct InitiateUploadParams {
     pub filename: String,
     pub file_size_bytes: u32,
 }
 
 impl InitiateUploadParams {
-    pub fn new(filename: String, file_size_bytes: u32) -> InitiateUploadParams {
+    #[must_use] pub fn new(filename: String, file_size_bytes: u32) -> InitiateUploadParams {
         InitiateUploadParams {
             filename,
             file_size_bytes,
@@ -67,14 +67,14 @@ impl InitiateUploadParams {
     }
 }
 
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Eq, Default, Serialize, Deserialize)]
 pub struct InitiateUploadResponse {
     pub user_media: UserMedia,
     pub upload_urls: Vec<UploadPartUrl>,
 }
 
 impl InitiateUploadResponse {
-    pub fn new(user_media: UserMedia, upload_urls: Vec<UploadPartUrl>) -> InitiateUploadResponse {
+    #[must_use] pub fn new(user_media: UserMedia, upload_urls: Vec<UploadPartUrl>) -> InitiateUploadResponse {
         InitiateUploadResponse {
             user_media,
             upload_urls,
@@ -82,18 +82,18 @@ impl InitiateUploadResponse {
     }
 }
 
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Eq, Default, Serialize, Deserialize)]
 pub struct FinishUploadParams {
     pub parts: Vec<CompletedPart>,
 }
 
 impl FinishUploadParams {
-    pub fn new(parts: Vec<CompletedPart>) -> FinishUploadParams {
+    #[must_use] pub fn new(parts: Vec<CompletedPart>) -> FinishUploadParams {
         FinishUploadParams { parts }
     }
 }
 
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Eq, Default, Serialize, Deserialize)]
 pub struct UploadPartUrl {
     pub part_number: i32,
     pub url: String,
@@ -102,7 +102,7 @@ pub struct UploadPartUrl {
 }
 
 impl UploadPartUrl {
-    pub fn new(part_number: i32, url: String, offset: i32, length: i32) -> UploadPartUrl {
+    #[must_use] pub fn new(part_number: i32, url: String, offset: i32, length: i32) -> UploadPartUrl {
         UploadPartUrl {
             part_number,
             url,
@@ -112,7 +112,7 @@ impl UploadPartUrl {
     }
 }
 
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Eq, Default, Serialize, Deserialize)]
 pub struct CompletedPart {
     #[serde(rename = "ETag")]
     pub e_tag: String,
@@ -121,7 +121,7 @@ pub struct CompletedPart {
 }
 
 impl CompletedPart {
-    pub fn new(e_tag: String, part_number: i32) -> CompletedPart {
+    #[must_use] pub fn new(e_tag: String, part_number: i32) -> CompletedPart {
         CompletedPart { e_tag, part_number }
     }
 }

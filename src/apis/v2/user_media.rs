@@ -5,8 +5,8 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 use crate::apis::configuration::Configuration;
-use crate::apis::{configuration, urlencode, Error, ResponseContent};
-use crate::models::v2;
+use crate::apis::{urlencode, Error, ResponseContent};
+
 use crate::models::v2::user_media::{
     FinishUploadParams, InitiateUploadParams, InitiateUploadResponse, UserMedia,
 };
@@ -54,8 +54,8 @@ pub async fn abort_upload(
     }
     if let Some(ref local_var_auth_conf) = local_var_configuration.basic_auth {
         local_var_req_builder = local_var_req_builder.basic_auth(
-            local_var_auth_conf.0.to_owned(),
-            local_var_auth_conf.1.to_owned(),
+            local_var_auth_conf.0.clone(),
+            local_var_auth_conf.1.clone(),
         );
     };
 
@@ -102,8 +102,8 @@ pub async fn finish_upload(
     }
     if let Some(ref local_var_auth_conf) = local_var_configuration.basic_auth {
         local_var_req_builder = local_var_req_builder.basic_auth(
-            local_var_auth_conf.0.to_owned(),
-            local_var_auth_conf.1.to_owned(),
+            local_var_auth_conf.0.clone(),
+            local_var_auth_conf.1.clone(),
         );
     };
     local_var_req_builder = local_var_req_builder.json(&data);
@@ -149,8 +149,8 @@ pub async fn initiate_upload(
     }
     if let Some(ref local_var_auth_conf) = local_var_configuration.basic_auth {
         local_var_req_builder = local_var_req_builder.basic_auth(
-            local_var_auth_conf.0.to_owned(),
-            local_var_auth_conf.1.to_owned(),
+            local_var_auth_conf.0.clone(),
+            local_var_auth_conf.1.clone(),
         );
     };
     local_var_req_builder = local_var_req_builder.json(&data);
