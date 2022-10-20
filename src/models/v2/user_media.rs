@@ -19,7 +19,8 @@ pub struct UserMedia {
 }
 
 impl UserMedia {
-    #[must_use] pub fn new(filename: String, size: u32) -> UserMedia {
+    #[must_use]
+    pub fn new(filename: String, size: u32) -> UserMedia {
         UserMedia {
             uuid: None,
             filename,
@@ -59,7 +60,8 @@ pub struct InitiateUploadParams {
 }
 
 impl InitiateUploadParams {
-    #[must_use] pub fn new(filename: String, file_size_bytes: u32) -> InitiateUploadParams {
+    #[must_use]
+    pub fn new(filename: String, file_size_bytes: u32) -> InitiateUploadParams {
         InitiateUploadParams {
             filename,
             file_size_bytes,
@@ -74,7 +76,8 @@ pub struct InitiateUploadResponse {
 }
 
 impl InitiateUploadResponse {
-    #[must_use] pub fn new(user_media: UserMedia, upload_urls: Vec<UploadPartUrl>) -> InitiateUploadResponse {
+    #[must_use]
+    pub fn new(user_media: UserMedia, upload_urls: Vec<UploadPartUrl>) -> InitiateUploadResponse {
         InitiateUploadResponse {
             user_media,
             upload_urls,
@@ -88,7 +91,8 @@ pub struct FinishUploadParams {
 }
 
 impl FinishUploadParams {
-    #[must_use] pub fn new(parts: Vec<CompletedPart>) -> FinishUploadParams {
+    #[must_use]
+    pub fn new(parts: Vec<CompletedPart>) -> FinishUploadParams {
         FinishUploadParams { parts }
     }
 }
@@ -102,7 +106,8 @@ pub struct UploadPartUrl {
 }
 
 impl UploadPartUrl {
-    #[must_use] pub fn new(part_number: i32, url: String, offset: i32, length: i32) -> UploadPartUrl {
+    #[must_use]
+    pub fn new(part_number: i32, url: String, offset: i32, length: i32) -> UploadPartUrl {
         UploadPartUrl {
             part_number,
             url,
@@ -121,7 +126,8 @@ pub struct CompletedPart {
 }
 
 impl CompletedPart {
-    #[must_use] pub fn new(e_tag: String, part_number: i32) -> CompletedPart {
+    #[must_use]
+    pub fn new(e_tag: String, part_number: i32) -> CompletedPart {
         CompletedPart { e_tag, part_number }
     }
 }

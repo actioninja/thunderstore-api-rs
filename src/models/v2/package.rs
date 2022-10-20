@@ -32,7 +32,8 @@ pub struct Package {
 }
 
 impl Package {
-    #[must_use] pub fn new(name: String, latest: Version, community_listings: Vec<Listing>) -> Package {
+    #[must_use]
+    pub fn new(name: String, latest: Version, community_listings: Vec<Listing>) -> Package {
         Package {
             namespace: None,
             name,
@@ -70,7 +71,8 @@ pub struct Card {
 }
 
 impl Card {
-    #[must_use] pub fn new(
+    #[must_use]
+    pub fn new(
         categories: Vec<Category>,
         community_identifier: String,
         community_name: String,
@@ -112,7 +114,8 @@ pub struct Category {
 }
 
 impl Category {
-    #[must_use] pub fn new(name: String, slug: String) -> Category {
+    #[must_use]
+    pub fn new(name: String, slug: String) -> Category {
         Category { name, slug }
     }
 }
@@ -129,7 +132,8 @@ pub struct Dependency {
 }
 
 impl Dependency {
-    #[must_use] pub fn new(
+    #[must_use]
+    pub fn new(
         community_identifier: Option<String>,
         community_name: Option<String>,
         description: String,
@@ -175,7 +179,8 @@ pub struct Version {
 }
 
 impl Version {
-    #[must_use] pub fn new(
+    #[must_use]
+    pub fn new(
         name: String,
         version_number: String,
         description: String,
@@ -211,7 +216,8 @@ pub struct Listing {
 }
 
 impl Listing {
-    #[must_use] pub fn new() -> Listing {
+    #[must_use]
+    pub fn new() -> Listing {
         Listing {
             has_nsfw_content: None,
             categories: None,
@@ -263,7 +269,8 @@ pub struct DetailView {
 }
 
 impl DetailView {
-    #[must_use] pub fn new(
+    #[must_use]
+    pub fn new(
         bg_image_src: Option<String>,
         categories: Vec<Category>,
         community_identifier: String,
@@ -321,7 +328,8 @@ pub struct ListResponse {
 }
 
 impl ListResponse {
-    #[must_use] pub fn new(results: Vec<Package>) -> ListResponse {
+    #[must_use]
+    pub fn new(results: Vec<Package>) -> ListResponse {
         ListResponse {
             next: None,
             previous: None,

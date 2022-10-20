@@ -37,7 +37,8 @@ pub struct Listing {
 }
 
 impl Listing {
-    #[must_use] pub fn new() -> Listing {
+    #[must_use]
+    pub fn new() -> Listing {
         Listing {
             name: None,
             full_name: None,
@@ -67,7 +68,8 @@ pub struct PackageVersion {
 }
 
 impl PackageVersion {
-    #[must_use] pub fn new(
+    #[must_use]
+    pub fn new(
         date_created: String,
         download_count: u32,
         download_url: String,

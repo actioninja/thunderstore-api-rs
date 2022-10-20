@@ -17,7 +17,8 @@ pub struct FrontPageContent {
 }
 
 impl FrontPageContent {
-    #[must_use] pub fn new(
+    #[must_use]
+    pub fn new(
         communities: Vec<community::Card>,
         download_count: u32,
         package_count: u32,

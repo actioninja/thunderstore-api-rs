@@ -10,7 +10,8 @@ pub struct RenderMarkdownParams {
 }
 
 impl RenderMarkdownParams {
-    #[must_use] pub fn new(markdown: String) -> RenderMarkdownParams {
+    #[must_use]
+    pub fn new(markdown: String) -> RenderMarkdownParams {
         RenderMarkdownParams { markdown }
     }
 }
@@ -21,7 +22,8 @@ pub struct RenderMarkdownResponse {
 }
 
 impl RenderMarkdownResponse {
-    #[must_use] pub fn new(html: String) -> RenderMarkdownResponse {
+    #[must_use]
+    pub fn new(html: String) -> RenderMarkdownResponse {
         RenderMarkdownResponse { html }
     }
 }

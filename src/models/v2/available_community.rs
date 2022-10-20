@@ -15,7 +15,8 @@ pub struct AvailableCommunity {
 }
 
 impl AvailableCommunity {
-    #[must_use] pub fn new(community: Community, categories: Vec<Category>, url: String) -> AvailableCommunity {
+    #[must_use]
+    pub fn new(community: Community, categories: Vec<Category>, url: String) -> AvailableCommunity {
         AvailableCommunity {
             community,
             categories,

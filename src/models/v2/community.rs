@@ -19,7 +19,8 @@ pub struct Community {
 }
 
 impl Community {
-    #[must_use] pub fn new(identifier: String, name: String) -> Community {
+    #[must_use]
+    pub fn new(identifier: String, name: String) -> Community {
         Community {
             identifier,
             name,
@@ -40,7 +41,8 @@ pub struct PackageList {
 }
 
 impl PackageList {
-    #[must_use] pub fn new(
+    #[must_use]
+    pub fn new(
         bg_image_src: Option<String>,
         categories: Vec<package::Category>,
         community_name: String,
@@ -67,7 +69,8 @@ pub struct Card {
 }
 
 impl Card {
-    #[must_use] pub fn new(
+    #[must_use]
+    pub fn new(
         bg_image_src: Option<String>,
         download_count: u32,
         identifier: String,
@@ -94,7 +97,8 @@ pub struct ListResponse {
 }
 
 impl ListResponse {
-    #[must_use] pub fn new(results: Vec<Community>) -> ListResponse {
+    #[must_use]
+    pub fn new(results: Vec<Community>) -> ListResponse {
         ListResponse {
             next: None,
             previous: None,
@@ -113,7 +117,8 @@ pub struct CategoryListResponse {
 }
 
 impl CategoryListResponse {
-    #[must_use] pub fn new(results: Vec<package::Category>) -> CategoryListResponse {
+    #[must_use]
+    pub fn new(results: Vec<package::Category>) -> CategoryListResponse {
         CategoryListResponse {
             next: None,
             previous: None,

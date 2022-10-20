@@ -75,10 +75,8 @@ pub async fn deprecate_mod_create(
             local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_auth_conf) = local_var_configuration.basic_auth {
-        local_var_req_builder = local_var_req_builder.basic_auth(
-            local_var_auth_conf.0.clone(),
-            local_var_auth_conf.1.clone(),
-        );
+        local_var_req_builder = local_var_req_builder
+            .basic_auth(local_var_auth_conf.0.clone(), local_var_auth_conf.1.clone());
     };
 
     let local_var_req = local_var_req_builder.build()?;
@@ -121,10 +119,8 @@ pub async fn current_user_info_list(
             local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_auth_conf) = local_var_configuration.basic_auth {
-        local_var_req_builder = local_var_req_builder.basic_auth(
-            local_var_auth_conf.0.clone(),
-            local_var_auth_conf.1.clone(),
-        );
+        local_var_req_builder = local_var_req_builder
+            .basic_auth(local_var_auth_conf.0.clone(), local_var_auth_conf.1.clone());
     };
 
     let local_var_req = local_var_req_builder.build()?;
@@ -163,10 +159,8 @@ pub async fn package_list(
             local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_auth_conf) = local_var_configuration.basic_auth {
-        local_var_req_builder = local_var_req_builder.basic_auth(
-            local_var_auth_conf.0.clone(),
-            local_var_auth_conf.1.clone(),
-        );
+        local_var_req_builder = local_var_req_builder
+            .basic_auth(local_var_auth_conf.0.clone(), local_var_auth_conf.1.clone());
     };
 
     let local_var_req = local_var_req_builder.build()?;
@@ -211,10 +205,8 @@ pub async fn rate_package(
             local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_auth_conf) = local_var_configuration.basic_auth {
-        local_var_req_builder = local_var_req_builder.basic_auth(
-            local_var_auth_conf.0.clone(),
-            local_var_auth_conf.1.clone(),
-        );
+        local_var_req_builder = local_var_req_builder
+            .basic_auth(local_var_auth_conf.0.clone(), local_var_auth_conf.1.clone());
     };
     local_var_req_builder = local_var_req_builder.json(&data);
 
@@ -259,10 +251,8 @@ pub async fn package_read(
             local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_auth_conf) = local_var_configuration.basic_auth {
-        local_var_req_builder = local_var_req_builder.basic_auth(
-            local_var_auth_conf.0.clone(),
-            local_var_auth_conf.1.clone(),
-        );
+        local_var_req_builder = local_var_req_builder
+            .basic_auth(local_var_auth_conf.0.clone(), local_var_auth_conf.1.clone());
     };
 
     let local_var_req = local_var_req_builder.build()?;
@@ -342,10 +332,8 @@ pub async fn community_bot_deprecate_mod_create(
             local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_auth_conf) = local_var_configuration.basic_auth {
-        local_var_req_builder = local_var_req_builder.basic_auth(
-            local_var_auth_conf.0.clone(),
-            local_var_auth_conf.1.clone(),
-        );
+        local_var_req_builder = local_var_req_builder
+            .basic_auth(local_var_auth_conf.0.clone(), local_var_auth_conf.1.clone());
     };
 
     let local_var_req = local_var_req_builder.build()?;
@@ -390,10 +378,8 @@ pub async fn community_current_user_info_list(
             local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_auth_conf) = local_var_configuration.basic_auth {
-        local_var_req_builder = local_var_req_builder.basic_auth(
-            local_var_auth_conf.0.clone(),
-            local_var_auth_conf.1.clone(),
-        );
+        local_var_req_builder = local_var_req_builder
+            .basic_auth(local_var_auth_conf.0.clone(), local_var_auth_conf.1.clone());
     };
 
     let local_var_req = local_var_req_builder.build()?;
@@ -437,10 +423,8 @@ pub async fn community_package_list(
             local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_auth_conf) = local_var_configuration.basic_auth {
-        local_var_req_builder = local_var_req_builder.basic_auth(
-            local_var_auth_conf.0.clone(),
-            local_var_auth_conf.1.clone(),
-        );
+        local_var_req_builder = local_var_req_builder
+            .basic_auth(local_var_auth_conf.0.clone(), local_var_auth_conf.1.clone());
     };
 
     let local_var_req = local_var_req_builder.build()?;
@@ -487,10 +471,8 @@ pub async fn community_package_rate(
             local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_auth_conf) = local_var_configuration.basic_auth {
-        local_var_req_builder = local_var_req_builder.basic_auth(
-            local_var_auth_conf.0.clone(),
-            local_var_auth_conf.1.clone(),
-        );
+        local_var_req_builder = local_var_req_builder
+            .basic_auth(local_var_auth_conf.0.clone(), local_var_auth_conf.1.clone());
     };
     local_var_req_builder = local_var_req_builder.json(&data);
 
@@ -537,10 +519,8 @@ pub async fn community_package_read(
             local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_auth_conf) = local_var_configuration.basic_auth {
-        local_var_req_builder = local_var_req_builder.basic_auth(
-            local_var_auth_conf.0.clone(),
-            local_var_auth_conf.1.clone(),
-        );
+        local_var_req_builder = local_var_req_builder
+            .basic_auth(local_var_auth_conf.0.clone(), local_var_auth_conf.1.clone());
     };
 
     let local_var_req = local_var_req_builder.build()?;

@@ -17,7 +17,8 @@ pub struct RequestBody {
 }
 
 impl RequestBody {
-    #[must_use] pub fn new(code: String, redirect_uri: String) -> RequestBody {
+    #[must_use]
+    pub fn new(code: String, redirect_uri: String) -> RequestBody {
         RequestBody { code, redirect_uri }
     }
 }
@@ -30,7 +31,8 @@ pub struct ResponseBody {
 }
 
 impl ResponseBody {
-    #[must_use] pub fn new(email: Option<String>, session_id: String, username: String) -> ResponseBody {
+    #[must_use]
+    pub fn new(email: Option<String>, session_id: String, username: String) -> ResponseBody {
         ResponseBody {
             email,
             session_id,

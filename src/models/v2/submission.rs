@@ -17,7 +17,8 @@ pub struct PackageSubmissionMetadata {
 }
 
 impl PackageSubmissionMetadata {
-    #[must_use] pub fn new(
+    #[must_use]
+    pub fn new(
         author_name: String,
         categories: Vec<String>,
         communities: Vec<String>,
@@ -41,7 +42,8 @@ pub struct PackageSubmissionResult {
 }
 
 impl PackageSubmissionResult {
-    #[must_use] pub fn new(
+    #[must_use]
+    pub fn new(
         package_version: package::Version,
         available_communities: Vec<AvailableCommunity>,
     ) -> PackageSubmissionResult {
@@ -58,7 +60,8 @@ pub struct ReadmeValidatorParams {
 }
 
 impl ReadmeValidatorParams {
-    #[must_use] pub fn new(readme_data: String) -> ReadmeValidatorParams {
+    #[must_use]
+    pub fn new(readme_data: String) -> ReadmeValidatorParams {
         ReadmeValidatorParams { readme_data }
     }
 }
@@ -69,7 +72,8 @@ pub struct ValidatorResponse {
 }
 
 impl ValidatorResponse {
-    #[must_use] pub fn new(success: bool) -> ValidatorResponse {
+    #[must_use]
+    pub fn new(success: bool) -> ValidatorResponse {
         ValidatorResponse { success }
     }
 }
@@ -81,7 +85,8 @@ pub struct ManifestV1ValidatorParams {
 }
 
 impl ManifestV1ValidatorParams {
-    #[must_use] pub fn new(namespace: String, manifest_data: String) -> ManifestV1ValidatorParams {
+    #[must_use]
+    pub fn new(namespace: String, manifest_data: String) -> ManifestV1ValidatorParams {
         ManifestV1ValidatorParams {
             namespace,
             manifest_data,
@@ -96,7 +101,8 @@ pub struct IconValidatorParams {
 }
 
 impl IconValidatorParams {
-    #[must_use] pub fn new(icon_data: String) -> IconValidatorParams {
+    #[must_use]
+    pub fn new(icon_data: String) -> IconValidatorParams {
         IconValidatorParams { icon_data }
     }
 }
