@@ -4,10 +4,12 @@
 // file, You can obtain one at https://mozilla.org/MPL/2.0/.                   /
 ////////////////////////////////////////////////////////////////////////////////
 
+use uuid::Uuid;
+
 #[derive(Clone, Debug, PartialEq, Eq, Default, Serialize, Deserialize)]
 pub struct UserMedia {
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub uuid: Option<uuid::Uuid>,
+    pub uuid: Option<Uuid>,
     pub filename: String,
     pub size: u32,
     #[serde(skip_serializing_if = "Option::is_none")]

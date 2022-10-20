@@ -5,8 +5,12 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 use crate::models::v2::community;
+#[cfg(feature = "ts-rs")]
+use ts_rs::TS;
 
 #[derive(Clone, Debug, PartialEq, Eq, Default, Serialize, Deserialize)]
+#[cfg_attr(feature = "ts-rs", derive(TS))]
+#[cfg_attr(feature = "ts-rs", ts(export))]
 pub struct FrontPageContent {
     #[serde(rename = "communities")]
     pub communities: Vec<community::Card>,

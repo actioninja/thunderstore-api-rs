@@ -6,8 +6,12 @@
 
 use crate::models::v2::community::Community;
 use crate::models::v2::package::Category;
+#[cfg(feature = "ts-rs")]
+use ts_rs::TS;
 
 #[derive(Clone, Debug, PartialEq, Eq, Default, Serialize, Deserialize)]
+#[cfg_attr(feature = "ts-rs", derive(TS))]
+#[cfg_attr(feature = "ts-rs", ts(export))]
 pub struct AvailableCommunity {
     pub community: Community,
     pub categories: Vec<Category>,

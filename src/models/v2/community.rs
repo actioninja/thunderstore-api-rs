@@ -5,8 +5,12 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 use crate::models::v2::package;
+#[cfg(feature = "ts-rs")]
+use ts_rs::TS;
 
 #[derive(Clone, Debug, PartialEq, Eq, Default, Serialize, Deserialize)]
+#[cfg_attr(feature = "ts-rs", derive(TS))]
+#[cfg_attr(feature = "ts-rs", ts(export))]
 pub struct Community {
     pub identifier: String,
     pub name: String,
@@ -32,6 +36,8 @@ impl Community {
 }
 
 #[derive(Clone, Debug, PartialEq, Eq, Default, Serialize, Deserialize)]
+#[cfg_attr(feature = "ts-rs", derive(TS))]
+#[cfg_attr(feature = "ts-rs", ts(export))]
 pub struct PackageList {
     pub bg_image_src: Option<String>,
     pub categories: Vec<package::Category>,
@@ -60,6 +66,8 @@ impl PackageList {
 }
 
 #[derive(Clone, Debug, PartialEq, Eq, Default, Serialize, Deserialize)]
+#[cfg_attr(feature = "ts-rs", derive(TS))]
+#[cfg_attr(feature = "ts-rs", ts(export))]
 pub struct Card {
     pub bg_image_src: Option<String>,
     pub download_count: u32,
@@ -88,6 +96,8 @@ impl Card {
 }
 
 #[derive(Clone, Debug, PartialEq, Eq, Default, Serialize, Deserialize)]
+#[cfg_attr(feature = "ts-rs", derive(TS))]
+#[cfg_attr(feature = "ts-rs", ts(export))]
 pub struct ListResponse {
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next: Option<String>,
@@ -108,6 +118,8 @@ impl ListResponse {
 }
 
 #[derive(Clone, Debug, PartialEq, Eq, Default, Serialize, Deserialize)]
+#[cfg_attr(feature = "ts-rs", derive(TS))]
+#[cfg_attr(feature = "ts-rs", ts(export))]
 pub struct CategoryListResponse {
     #[serde(skip_serializing_if = "Option::is_none")]
     pub next: Option<String>,

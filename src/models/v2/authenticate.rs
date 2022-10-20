@@ -10,7 +10,12 @@
 // file, You can obtain one at https://mozilla.org/MPL/2.0/.                   /
 ////////////////////////////////////////////////////////////////////////////////
 
+#[cfg(feature = "ts-rs")]
+use ts_rs::TS;
+
 #[derive(Clone, Debug, PartialEq, Eq, Default, Serialize, Deserialize)]
+#[cfg_attr(feature = "ts-rs", derive(TS))]
+#[cfg_attr(feature = "ts-rs", ts(export))]
 pub struct RequestBody {
     pub code: String,
     pub redirect_uri: String,
@@ -24,6 +29,8 @@ impl RequestBody {
 }
 
 #[derive(Clone, Debug, PartialEq, Eq, Default, Serialize, Deserialize)]
+#[cfg_attr(feature = "ts-rs", derive(TS))]
+#[cfg_attr(feature = "ts-rs", ts(export))]
 pub struct ResponseBody {
     pub email: Option<String>,
     pub session_id: String,

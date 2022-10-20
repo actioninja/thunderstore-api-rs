@@ -4,7 +4,12 @@
 // file, You can obtain one at https://mozilla.org/MPL/2.0/.                   /
 ////////////////////////////////////////////////////////////////////////////////
 
+#[cfg(feature = "ts-rs")]
+use ts_rs::TS;
+
 #[derive(Clone, Debug, PartialEq, Eq, Default, Serialize, Deserialize)]
+#[cfg_attr(feature = "ts-rs", derive(TS))]
+#[cfg_attr(feature = "ts-rs", ts(export))]
 pub struct RenderMarkdownParams {
     pub markdown: String,
 }
@@ -17,6 +22,8 @@ impl RenderMarkdownParams {
 }
 
 #[derive(Clone, Debug, PartialEq, Eq, Default, Serialize, Deserialize)]
+#[cfg_attr(feature = "ts-rs", derive(TS))]
+#[cfg_attr(feature = "ts-rs", ts(export))]
 pub struct RenderMarkdownResponse {
     pub html: String,
 }

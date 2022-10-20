@@ -4,7 +4,12 @@
 // file, You can obtain one at https://mozilla.org/MPL/2.0/.                   /
 ////////////////////////////////////////////////////////////////////////////////
 
+#[cfg(feature = "ts-rs")]
+use ts_rs::TS;
+
 #[derive(Clone, Debug, PartialEq, Eq, Default, Serialize, Deserialize)]
+#[cfg_attr(feature = "ts-rs", derive(TS))]
+#[cfg_attr(feature = "ts-rs", ts(export))]
 pub struct Package {
     #[serde(skip_serializing_if = "Option::is_none")]
     pub namespace: Option<String>,
@@ -53,6 +58,8 @@ impl Package {
 }
 
 #[derive(Clone, Debug, PartialEq, Eq, Default, Serialize, Deserialize)]
+#[cfg_attr(feature = "ts-rs", derive(TS))]
+#[cfg_attr(feature = "ts-rs", ts(export))]
 pub struct Card {
     pub categories: Vec<Category>,
     pub community_identifier: String,
@@ -108,6 +115,8 @@ impl Card {
 }
 
 #[derive(Clone, Debug, PartialEq, Eq, Default, Serialize, Deserialize)]
+#[cfg_attr(feature = "ts-rs", derive(TS))]
+#[cfg_attr(feature = "ts-rs", ts(export))]
 pub struct Category {
     pub name: String,
     pub slug: String,
@@ -121,6 +130,8 @@ impl Category {
 }
 
 #[derive(Clone, Debug, PartialEq, Eq, Default, Serialize, Deserialize)]
+#[cfg_attr(feature = "ts-rs", derive(TS))]
+#[cfg_attr(feature = "ts-rs", ts(export))]
 pub struct Dependency {
     pub community_identifier: Option<String>,
     pub community_name: Option<String>,
@@ -155,6 +166,8 @@ impl Dependency {
 }
 
 #[derive(Clone, Debug, PartialEq, Eq, Default, Serialize, Deserialize)]
+#[cfg_attr(feature = "ts-rs", derive(TS))]
+#[cfg_attr(feature = "ts-rs", ts(export))]
 pub struct Version {
     #[serde(skip_serializing_if = "Option::is_none")]
     pub namespace: Option<String>,
@@ -204,6 +217,8 @@ impl Version {
 }
 
 #[derive(Clone, Debug, PartialEq, Eq, Default, Serialize, Deserialize)]
+#[cfg_attr(feature = "ts-rs", derive(TS))]
+#[cfg_attr(feature = "ts-rs", ts(export))]
 pub struct Listing {
     #[serde(rename = "has_nsfw_content", skip_serializing_if = "Option::is_none")]
     pub has_nsfw_content: Option<bool>,
@@ -229,6 +244,8 @@ impl Listing {
 
 ///
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+#[cfg_attr(feature = "ts-rs", derive(TS))]
+#[cfg_attr(feature = "ts-rs", ts(export))]
 pub enum ReviewStatus {
     #[serde(rename = "unreviewed")]
     Unreviewed,
@@ -245,6 +262,8 @@ impl Default for ReviewStatus {
 }
 
 #[derive(Clone, Debug, PartialEq, Eq, Default, Serialize, Deserialize)]
+#[cfg_attr(feature = "ts-rs", derive(TS))]
+#[cfg_attr(feature = "ts-rs", ts(export))]
 pub struct DetailView {
     pub bg_image_src: Option<String>,
     pub categories: Vec<Category>,
@@ -318,6 +337,8 @@ impl DetailView {
 }
 
 #[derive(Clone, Debug, PartialEq, Eq, Default, Serialize, Deserialize)]
+#[cfg_attr(feature = "ts-rs", derive(TS))]
+#[cfg_attr(feature = "ts-rs", ts(export))]
 pub struct ListResponse {
     #[serde(rename = "next", skip_serializing_if = "Option::is_none")]
     pub next: Option<String>,

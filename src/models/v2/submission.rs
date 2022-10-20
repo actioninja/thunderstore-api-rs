@@ -6,6 +6,9 @@
 
 use crate::models::v2::available_community::AvailableCommunity;
 use crate::models::v2::package;
+#[cfg(feature = "ts-rs")]
+use ts_rs::TS;
+use uuid::Uuid;
 
 #[derive(Clone, Debug, PartialEq, Eq, Default, Serialize, Deserialize)]
 pub struct PackageSubmissionMetadata {
@@ -13,7 +16,7 @@ pub struct PackageSubmissionMetadata {
     pub categories: Vec<String>,
     pub communities: Vec<String>,
     pub has_nsfw_content: bool,
-    pub upload_uuid: uuid::Uuid,
+    pub upload_uuid: Uuid,
 }
 
 impl PackageSubmissionMetadata {
@@ -36,6 +39,8 @@ impl PackageSubmissionMetadata {
 }
 
 #[derive(Clone, Debug, PartialEq, Eq, Default, Serialize, Deserialize)]
+#[cfg_attr(feature = "ts-rs", derive(TS))]
+#[cfg_attr(feature = "ts-rs", ts(export))]
 pub struct PackageSubmissionResult {
     pub package_version: package::Version,
     pub available_communities: Vec<AvailableCommunity>,
@@ -55,6 +60,8 @@ impl PackageSubmissionResult {
 }
 
 #[derive(Clone, Debug, PartialEq, Eq, Default, Serialize, Deserialize)]
+#[cfg_attr(feature = "ts-rs", derive(TS))]
+#[cfg_attr(feature = "ts-rs", ts(export))]
 pub struct ReadmeValidatorParams {
     pub readme_data: String,
 }
@@ -67,6 +74,8 @@ impl ReadmeValidatorParams {
 }
 
 #[derive(Clone, Debug, PartialEq, Eq, Default, Serialize, Deserialize)]
+#[cfg_attr(feature = "ts-rs", derive(TS))]
+#[cfg_attr(feature = "ts-rs", ts(export))]
 pub struct ValidatorResponse {
     pub success: bool,
 }
@@ -79,6 +88,8 @@ impl ValidatorResponse {
 }
 
 #[derive(Clone, Debug, PartialEq, Eq, Default, Serialize, Deserialize)]
+#[cfg_attr(feature = "ts-rs", derive(TS))]
+#[cfg_attr(feature = "ts-rs", ts(export))]
 pub struct ManifestV1ValidatorParams {
     pub namespace: String,
     pub manifest_data: String,
@@ -95,6 +106,8 @@ impl ManifestV1ValidatorParams {
 }
 
 #[derive(Clone, Debug, PartialEq, Eq, Default, Serialize, Deserialize)]
+#[cfg_attr(feature = "ts-rs", derive(TS))]
+#[cfg_attr(feature = "ts-rs", ts(export))]
 pub struct IconValidatorParams {
     #[serde(rename = "icon_data")]
     pub icon_data: String,
